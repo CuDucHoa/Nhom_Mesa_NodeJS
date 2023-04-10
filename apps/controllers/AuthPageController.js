@@ -76,7 +76,7 @@ class AuthPageController {
         if (user.role == 'user') {
             return res.redirect('/');
         } else if (user.role !== 'user') {
-            return res.redirect('/');
+            return res.redirect('/manage');
         }
     }
     async logout(req, res, next) {

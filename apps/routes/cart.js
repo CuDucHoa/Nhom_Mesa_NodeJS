@@ -3,6 +3,7 @@ const router = express.Router();
 const cartPageController = require('../controllers/cartPageController');
 
 router.get('/', cartPageController.index);
+router.post('/', cartPageController.update);
 router.get('/add-to-cart/:slug', cartPageController.addCart);
 router.get('/delete-cart/:slug', cartPageController.deleteCart);
 

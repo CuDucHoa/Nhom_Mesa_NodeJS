@@ -31,4 +31,16 @@ module.exports = class Cart {
             cart.products.splice(isExisting, 1);
         }
     }
+    static updateQuantity(productName, productQuantity) {
+        const isExisting = cart.products.findIndex(p => p.productName == productName);
+        if (isExisting >= 0) {
+            let updateProduct = cart.products[isExisting];
+            cart.totalItem -= updateProduct.quantity;
+            cart.totalPrice -= updateProduct.price * updateProduct.quantity;
+            updateProduct.quantity = productQuantity;
+            cart.totalItem += updateProduct.quantity;
+            cart.totalPrice += updateProduct.price * updateProduct.quantity;
+            cart.products.splice(isExisting, 1);
+        }
+    }
 }

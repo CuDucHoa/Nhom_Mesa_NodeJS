@@ -19,6 +19,18 @@ class cartPageController {
         }
     }
 
+    async update(req, res, next) {
+        try {
+            let user = null;
+            if (req.session.token) {
+                user = req.session.username;
+            }
+            res.redirect('/cart');
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async addCart(req, res, next) {
         try {
             const addProduct = await Product.findOne({ slug: req.params.slug });
