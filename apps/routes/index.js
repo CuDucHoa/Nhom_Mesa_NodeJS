@@ -5,6 +5,7 @@ const contact = require('./contact');
 const cart = require('./cart');
 const checkout = require('./checkout');
 const manage = require('./manage');
+const information = require('./information');
 
 function route(app) {
 
@@ -14,6 +15,7 @@ function route(app) {
     app.use('/cart', cart);
     app.use('/checkout', checkout);
     app.use('/manage', manage);
+    app.use('/information', information);
     app.use('/', home);
 }
 
