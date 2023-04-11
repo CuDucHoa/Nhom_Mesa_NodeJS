@@ -6,6 +6,8 @@ const cart = require('./cart');
 const checkout = require('./checkout');
 const manage = require('./manage');
 const information = require('./information');
+const create = require('./create');
+const update = require('./update');
 
 function route(app) {
 
@@ -16,6 +18,8 @@ function route(app) {
     app.use('/checkout', checkout);
     app.use('/manage', manage);
     app.use('/information', information);
+    app.use('/create', create);
+    app.use('/update', update);
     app.use('/', home);
 }
 

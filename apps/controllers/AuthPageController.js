@@ -50,9 +50,8 @@ class AuthPageController {
             userEmail: req.body.useremail,
             password: hashPassword,
             fullName: req.body.fullname,
-            role: 'user',
+            role: 'admin',
         });
-
         try {
             const newUser = await user.save();
             await res.redirect('/');;
@@ -73,10 +72,11 @@ class AuthPageController {
         let session = req.session;
         session.token = token;
         session.username = user.userName;
+        session.role = user.role;
         if (user.role == 'user') {
             return res.redirect('/');
         } else if (user.role !== 'user') {
-            return res.redirect('/manage');
+            return res.redirect('/');
         }
     }
     async logout(req, res, next) {

@@ -133,6 +133,9 @@
                                 </div>
                             </div>
                             <a href="/contact" class="nav-item nav-link">Contact</a>
+                            <%if(role !='user'){%>
+                                <a href="/create" class="nav-item nav-link">Create Product</a>
+                                <%}%>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <div class="navbar-nav ml-auto py-0">
@@ -140,7 +143,7 @@
                                     <a href="/login" class="nav-item nav-link">Login</a>
                                     <a href="/register" class="nav-item nav-link">Register</a>
                                     <%}else{%>
-                                        <a herf="/information" class="nav-item nav-link">
+                                        <a href="/information" class="nav-item nav-link">
                                             <%=user%>
                                         </a>
                                         <a href="/logout" class="nav-item nav-link">Logout</a>
@@ -267,6 +270,9 @@
                         </div>
                     </div>
                     <a href="/cart/add-to-cart/<%=product.slug%>" class="btn btn-add-cart btn-primary px-3" data-id="<%=product.productName%>"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</a>
+                    <%if(role !='user'){%>
+                        <a href="/update/<%=product.slug%>" class="btn btn-add-cart btn-primary px-3" data-id="<%=product.productName%>"><i class="fa fa-shopping-cart mr-1"></i> Update Product</a>
+                        <%}%>
                 </div>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>

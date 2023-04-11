@@ -7,13 +7,15 @@ class cartPageController {
     async index(req, res, next) {
         try {
             let user = null;
+            let role = null;
             if (req.session.token) {
                 user = req.session.username;
+                role = req.session.role;
             }
             const products = await Product.find({});
             const categories = await Category.find({});
             const cart = Cart.getCart();
-            res.render('cart', { user, cart, products, categories });
+            res.render('cart', { role, user, cart, products, categories });
         } catch (error) {
             next(error);
         }
